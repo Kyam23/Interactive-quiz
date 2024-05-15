@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Page</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+       body {
+        font-family: Arial, sans-serif;
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTONpQ8DOkjUqEfZXgc0EWqYNdL32OXaE-mBjbvZ8M1WnycF7BFeump0ys&s'); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+</style>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      
+        <h2 class="text-center mb-4">Registration Form</h2>
+        <form>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

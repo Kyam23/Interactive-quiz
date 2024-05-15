@@ -1,0 +1,38 @@
+.container {
+    margin-top: 20px;
+    
+  }
+  
+  label {
+    font-size: 18px;
+  }
+  
+  input[type="text"] {
+    width: 200px;
+    padding: 8px;
+    margin-right: 10px;
+    
+  }
+  
+  button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: content;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #welcomeMessage {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  body {
+      background-color: yellow;
+  }
