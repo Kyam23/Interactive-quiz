@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Task Manager</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS */
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="mb-4">Daily Task Manager</h1>
+    <form id="taskForm">
+      <div class="form-group">
+        <label for="taskTitle">Title:</label>
+        <input type="text" class="form-control" id="taskTitle" required>
+      </div>
+      <div class="form-group">
+        <label for="taskDescription">Description:</label>
+        <textarea class="form-control" id="taskDescription" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="taskDate">Date:</label>
+        <input type="date" class="form-control" id="taskDate" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Task</button>
+    </form>
+    <hr>
+    <h2>Task List</h2>
+    <ul id="taskList" class="list-group">
+      <!-- Tasks will be dynamically added here -->
+    </ul>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <script>
+    // JavaScript logic
+    document.getElementById('taskForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      addTask();
+    });
+
+    function addTask() {
+      var title = document.getElementById('taskTitle').value;
+      var description = document.getElementById('taskDescription').value;
+      var date = document.getElementById('taskDate').value;
+
+      var taskItem = document.createElement('li');
+      taskItem.className = 'list-group-item';
+      taskItem.innerHTML = `
+        <strong>${title}</strong>
+        <p>${description}</p>
+        <small>${date}</small>
+        <button class="btn btn-danger btn-sm float-right" onclick="deleteTask(this)">Delete</button>
+      `;
+
+      document.getElementById('taskList').appendChild(taskItem);
+      // Clear form inputs after adding task
+      document.getElementById('taskForm').reset();
+    }
+
+    function deleteTask(task) {
+      task.parentNode.remove();
+    }
+  </script>
+</body>
+</html>
