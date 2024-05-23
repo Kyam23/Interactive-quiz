@@ -1,0 +1,55 @@
+<!DOCTYPE.html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="clock.css">
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  #time {
+    font-size: 50px;
+    color: black;
+    max-width: 400px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 30px 20px 10px white;
+  }
+    </style>
+    
+    <h2 id="time"> </h2>
+    <script>
+    const showTime = () => {
+    var date = new Date()
+    var h = date.getHours().toString().padStart(2, "0")
+    var m = date.getMinutes().toString().padStart(2, "0")
+    var s = date.getSeconds().toString().padStart(2, "0")
+    
+    var time = h + ":" + m + ":" + s 
+    document.getElementById("time").innerText = time
+    
+    if (s ==0) {
+        alert("ting ting tinining tingting tinining tinininininining!")
+        clearInterval(showTime)
+    }
+    
+}
+setInterval(showTime, 1000)
+
+    </script>
+    </body>
+    </html>
