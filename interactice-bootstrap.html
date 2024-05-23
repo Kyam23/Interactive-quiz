@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Quiz</title>
+ 
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="mb-4">Interactive Quiz</h1>
+    <div id="quiz">
+      
+    </div>
+    <button id="submitBtn" class="btn btn-primary mt-3">Submit Answers</button>
+  </div>
+
+ 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    const questions = [
+      {
+        question: "What is the capital of France?",
+        options: ["London", "Paris", "Berlin", "Madrid"],
+        answer: "Paris"
+      },
+      {
+        question: "Which planet is known as the Red Planet?",
+        options: ["Mars", "Jupiter", "Venus", "Saturn"],
+        answer: "Mars"
+      },
+      {
+        question: "What is the tallest mammal?",
+        options: ["Elephant", "Giraffe", "Horse", "Lion"],
+        answer: "Giraffe"
+      }
+    ];
+
+    function generateQuiz() {
+      const quizDiv = document.getElementById('quiz');
+
+      questions.forEach((question, index) => {
+        const questionHTML = `
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">Question ${index + 1}</h5>
+              <p class="card-text">${question.question}</p>
+              ${generateOptions(question.options, index)}
+            </div>
+          </div>
+        `;
+        quizDiv.innerHTML += questionHTML;
+      });
+    }
+
+    function generateOptions(options, index) {
+      let optionsHTML = '';
+      options.forEach((option, optionIndex) => {
+        optionsHTML += `
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="question${index}" id="option${index}${optionIndex}" value="${option}">
+            <label class="form-check-label" for="option${index}${optionIndex}">
+              ${option}
+            </label>
+          </div>
+        `;
+      });
+      return optionsHTML;
+    }
+
+    function checkAnswers() {
+      let score = 0;
+      questions.forEach((question, index) => {
+        const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+        if (selectedOption) {
+          if (selectedOption.value === question.answer) {
+            score++;
+          }
+        }
+      });
+      alert(`Your score: ${score}/${questions.length}`);
+    }
+
+    window.onload = generateQuiz;
+
+    document.getElementById('submitBtn').addEventListener('click', checkAnswers);
+  </script>
+</body>
+</html>
